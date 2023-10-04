@@ -48,3 +48,23 @@ function greet (){
 }
 // at the end of declaring of a function we do not need semi colone
 greet();
+
+
+// Operators :
+
+
+// Arithmetic operators :
+let x = 10 , y = 3 ;
+// console.log(x%y); --> 1
+// console.log(x ** y) --> 1000
+
+
+// equality :
+// district equality (check both type and value): === , !==
+// lose equality (if both types are not equal it tries to convert right type to left type) 
+// true == 1 ---> true = true , 1 == '1' --> 1 == 1
+
+// ternary :
+let point = 100 ;
+let type = point > 50 ? 'gold' : 'silver' ;
+console.log(type);
