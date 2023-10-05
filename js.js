@@ -68,3 +68,57 @@ let x = 10 , y = 3 ;
 let point = 100 ;
 let type = point > 50 ? 'gold' : 'silver' ;
 console.log(type);
+
+
+// control flow 
+
+// if conditions :
+let hour = 9 ;
+if (hour <= 12 && hour >= 6) {
+    console.log('Good morning')
+}
+else if (hour > 12 && hour <= 18){
+    console.log('Good evening')
+}
+else{
+    console.log('Good Evening')
+}
+
+let user = 'guest' ;
+switch (user){
+    case 'guest' : {
+        console.log('hi guest')
+    }
+    case 'admin' : {
+        console.log('hi admin')
+    }
+}
+
+// loops :
+for (let i = 0 ; i < 5 ; i++){
+    console.log('lob lob');
+}
+
+
+let i = 0 ; 
+while (i < 5){
+    console.log('lob lob');
+    i++;
+}
+
+
+// for - in
+// access to property of object or index of array
+for (let key in person) {
+    console.log(person[key] , key)
+}
+colors = ['red', 'blue']
+for (let element in colors){
+    console.log(colors[element] , element)
+}
+
+// for - of
+// direct access to element of array
+for (let element of colors){
+    console.log(element)
+}
