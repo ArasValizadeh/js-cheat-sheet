@@ -203,3 +203,125 @@ console.log(now.toDateString() , now.toISOString())
 console.log(`you are ${now.getFullYear() - birthDay.getFullYear()} years old`)
 
 
+// Array 
+
+
+// adding items
+const numbers = [2,3,8,2]
+//add to end of array
+numbers.push(7 , 8)
+//add to beginning of array
+numbers.unshift(1,2)
+// add to middle of array --> numbers.splice()
+
+
+// search for an element , these methods has 2 argument which represent the start index
+console.log(numbers.includes(2))
+
+console.log(numbers.indexOf(2) ,numbers.lastIndexOf(2))
+
+
+// to search a non primitive type in array we have to use find and findindex method
+
+const users = [
+    {id : 1 , name :'Aras'} ,
+    {id : 2 , name :'Amanj'}
+]
+
+const findUser = users.find(function (element) {
+    return element.name == 'Amanj'
+})
+
+// removing item
+
+// end 
+numbers.pop()
+
+// beginning
+numbers.shift()
+
+//middle --> numbers.splice(start , howMany)
+
+
+// empty an array
+
+numbers.splice(0 , numbers.length);
+numbers.length = 0 
+
+// combine 2 arrays
+
+let array1 = [{id : 1},2,3,4]
+let array2 = [5,3,2,1]
+//let concat = array1.concat(array2)
+let concat = [...array1 ,'add element' ,...array2]
+array1[0].id = 2;
+
+console.log(concat)
+
+
+
+// iterate an array
+for (let number of numbers) console.log(number)
+
+concat.forEach(function (number , index) {
+    console.log(index , number)
+})
+
+// join function
+const joined = concat.join('*__*')
+console.log(joined)  
+
+// sorting an array
+// sorting primitive types are easy 
+let numbers2 = [3,4,1,4,2,9 ,4, 6]
+numbers2.sort(); // ascending order by default
+console.log(numbers2)
+
+let courses = [
+    { name: "HTML", id: 3 },
+    {name:"CSS" , id:  2}, 
+    {name :"JS" , id:   1}
+];
+
+courses.sort(function (a , b){
+    // a > b 1
+    // a < b -1
+    // a = b 0
+    // it compare by their ascii code
+    // it`s safer to convert both of them to lowercase 
+    if (a.name > b.name) return 1
+    else if (a.name < b.name) return -1 
+    return 0
+})
+console.log(courses)
+
+
+// test all elements of array
+let arr=[0,1,2,3,4,5,6]
+const allBiggerThanZero = arr.every(function (element){
+    return element > 0
+})
+console.log(allBiggerThanZero)
+const existAnElementBiggerZero = arr.some(function () {
+
+})
+
+
+// filtering array
+const filtered = arr.filter((value) => {
+    return value > 0 
+})
+console.log(filtered)
+
+// mapping an array
+let mapped = filtered.map( (value) => {
+    return value * 2
+})
+
+console.log(mapped)
+
+// sum all elements of array 
+const sum = arr.reduce(function (accumulator , currentValue){
+    return accumulator + currentValue;
+})
+console.log(sum)
