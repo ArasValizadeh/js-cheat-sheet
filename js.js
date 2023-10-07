@@ -1,10 +1,10 @@
 // you can run js codes on js engine of web browsers or node js 
-// it`s a good way to write scripts in the end of head or body of html 
+// it's a good way to write scripts in the end of head or body of html 
 
 
 // Variables : 
 // var(old) / let (es6) keywords
-// default value of variables are undefined / can`t use hyphen in declaring variable name
+// default value of variables are undefined
 let name; 
 console.log(name) ; 
 
@@ -62,7 +62,7 @@ let x = 10 , y = 3 ;
 // equality :
 // district equality (check both type and value): === , !==
 // lose equality (if both types are not equal it tries to convert right type to left type) 
-// true == 1 ---> true = true , 1 == '1' --> 1 == 1
+// true == 1 ---> true == true , 1 == '1' --> 1 == 1
 
 // ternary :
 let point = 100 ;
@@ -118,7 +118,88 @@ for (let element in colors){
 }
 
 // for - of
-// direct access to element of array
+// direct access to element of array . it used for iterables like map and array
+// if you use it for object you will get error
 for (let element of colors){
     console.log(element)
 }
+
+
+// Object 
+let circle = {
+    radius:3,
+    location : {
+        x : 1 , 
+        y : 2 
+    },
+    draw :function (){
+        console.log(`draw in ${this.location.x } , ${this.location.y}`)
+    }
+}
+
+// object factory
+function createCircle(radius){
+    return{
+        radius,
+        draw (){
+            console.log(`drawing ${this.radius}`);
+        }
+    }
+}
+
+let circle1 = createCircle(3);
+circle1.draw()
+
+// objects are dynamic in js , you can add and delete properties
+circle1.color = 'yellow'
+delete circle1['color']
+circle1.radius = 5
+
+//Constructors
+function Circle (radius){
+    this.radius = radius ,
+    this.draw = () => {
+        console.log('i was made by constructor')
+    }
+}
+
+// make an instance using a constructor
+let circle2 = new Circle(3);
+let circle3 = Circle.call({} , 5)
+let circle4 = Circle.apply({} , [4])
+
+// objects are not iterable so you can not use for-of Objects.keys(instance) --> it returns an array which is iterable
+// or you can use Objects.entries() --> it return an key value in a array that has property and their value\
+for (let key of Object.keys(circle2)){
+    console.log(key)
+}
+
+// copy an object to another object 
+let another = {}
+for (let key in circle2) {
+    another[key] = circle2[key]
+}
+let another2 = Object.assign({
+    color : 'Red' , 
+},circle2)
+console.log(another2)
+
+//spread 
+let another3 = {...circle2}
+
+let friend = 'john'
+//template literal
+let myString = `my
+first
+string to my friend ${friend} he has
+${1+1} babies`;
+console.log(myString)
+
+
+// Date 
+const now = new Date();
+let birthDay = new Date(2004 , 3 , 11)
+console.log(now.toDateString() , now.toISOString())
+console.log(`you are ${now.getFullYear() - birthDay.getFullYear()} years old`)
+
+
